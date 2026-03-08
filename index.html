@@ -1,37 +1,47 @@
 <!DOCTYPE html><html>
-<head><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Laxmi Birthday</title><style>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Laxmi Birthday</title><style>
 
-/* BODY */
+/* BODY BACKGROUND */
 
 body{
-
 margin:0;
-
 font-family:Arial;
-
 color:white;
-
 text-align:center;
-
 height:100vh;
-
 display:flex;
-
 justify-content:center;
-
 align-items:center;
-
 flex-direction:column;
-
 overflow:hidden;
 
 /* PINK PURPLE BACKGROUND */
 
-background:linear-gradient(135deg,#ff758c,#ff7eb3,#8f5cff);
+background:linear-gradient(135deg,#ff6a88,#ff99ac,#8f5cff);
 
 }
 
-/* BACKGROUND IMAGE AFTER TAP */
+/* TAP BUTTON */
+
+.tapBox{
+
+background:rgba(0,0,0,0.4);
+
+padding:18px 30px;
+
+font-size:18px;
+
+border-radius:12px;
+
+cursor:pointer;
+
+box-shadow:0 5px 20px rgba(0,0,0,0.3);
+
+}
+
+/* IMAGE AFTER TAP */
 
 .bg{
 
@@ -50,24 +60,6 @@ object-fit:cover;
 z-index:-1;
 
 display:none;
-
-}
-
-/* TAP BUTTON */
-
-.tapBox{
-
-background:linear-gradient(135deg,#ff6a88,#ff99ac);
-
-padding:18px 32px;
-
-font-size:18px;
-
-border-radius:12px;
-
-cursor:pointer;
-
-box-shadow:0 5px 20px rgba(0,0,0,0.3);
 
 }
 
@@ -153,12 +145,24 @@ margin-top:20px;
 
 <!-- TAP PAGE --><div id="page1"><div class="tapBox" onclick="openPage()">🎁 Tap For Your Surprise
 
-</div></div><!-- COUNTDOWN PAGE --><div id="page2"><div class="topText">❤️ I love you Laxmi wife 🫶🧿🥺
-
-</div><div class="countdown"><div class="box"><div id="days" class="number">00</div><div class="label">Days</div></div><div class="box"><div id="hours" class="number">00</div><div class="label">Hours</div></div><div class="box"><div id="minutes" class="number">00</div><div class="label">Minutes</div></div><div class="box"><div id="seconds" class="number">00</div><div class="label">Seconds</div></div></div><div class="bottomText">🥺 I miss you Baby 🥺🫶🧿
-
-</div><div id="birthdayMsg">🎉 Happy Birthday Laxmi bow 🫶🧿
-
+</div></div><!-- COUNTDOWN PAGE --><div id="page2"><div class="topText">
+❤️ I love you Laxmi wife 🫶🧿🥺
+</div><div class="countdown"><div class="box">
+<div id="days" class="number">00</div>
+<div class="label">Days</div>
+</div><div class="box">
+<div id="hours" class="number">00</div>
+<div class="label">Hours</div>
+</div><div class="box">
+<div id="minutes" class="number">00</div>
+<div class="label">Minutes</div>
+</div><div class="box">
+<div id="seconds" class="number">00</div>
+<div class="label">Seconds</div>
+</div></div><div class="bottomText">
+🥺 I miss you Baby 🥺🫶🧿
+</div><div id="birthdayMsg">
+🎉 Happy Birthday Laxmi bow 🫶🧿
 </div></div><script>
 
 function openPage(){
@@ -194,11 +198,8 @@ var minutes=Math.floor((distance%(1000*60*60))/(1000*60));
 var seconds=Math.floor((distance%(1000*60))/1000);
 
 document.getElementById("days").innerHTML=days;
-
 document.getElementById("hours").innerHTML=hours;
-
 document.getElementById("minutes").innerHTML=minutes;
-
 document.getElementById("seconds").innerHTML=seconds;
 
 if(distance<=0){
@@ -219,4 +220,5 @@ document.getElementById("birthdayMsg").style.display="block";
 
 }
 
-</script></body></html>
+</script></body>
+</html>
