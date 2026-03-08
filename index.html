@@ -15,20 +15,19 @@ align-items:center;
 flex-direction:column;
 overflow:hidden;
 
-/* Smooth Love Gradient */
-
 background:linear-gradient(135deg,#ff5f9e,#ff7eb3,#9a6bff);
+background-size:cover;
 }
 
 /* TAP BOX */
 
 .tapBox{
 border:2px solid black;
-padding:18px 28px;
-font-size:18px;
+padding:16px 24px;
+font-size:16px;
 cursor:pointer;
 background:rgba(255,255,255,0.25);
-border-radius:10px;
+border-radius:8px;
 }
 
 /* PAGE */
@@ -42,36 +41,36 @@ align-items:center;
 /* TEXT */
 
 .topText{
-font-size:18px;
-margin-bottom:15px;
+font-size:16px;
+margin-bottom:10px;
 }
 
 .bottomText{
-font-size:17px;
-margin-top:15px;
+font-size:15px;
+margin-top:10px;
 }
 
 /* COUNTDOWN */
 
 .countdown{
 display:flex;
-gap:10px;
+gap:6px;
 }
 
 .box{
-background:rgba(255,255,255,0.3);
-padding:10px;
-border-radius:10px;
-width:60px;
+background:rgba(255,255,255,0.35);
+padding:8px;
+border-radius:8px;
+width:55px;
 }
 
 .number{
-font-size:20px;
+font-size:16px;
 font-weight:bold;
 }
 
 .label{
-font-size:10px;
+font-size:9px;
 }
 
 /* HEARTS */
@@ -79,8 +78,8 @@ font-size:10px;
 .heart{
 position:absolute;
 color:#ff2e63;
-font-size:16px;
-animation:float 7s linear infinite;
+font-size:14px;
+animation:float 8s linear infinite;
 opacity:0.7;
 }
 
@@ -93,8 +92,8 @@ opacity:0.7;
 
 #birthdayMsg{
 display:none;
-font-size:26px;
-margin-top:25px;
+font-size:22px;
+margin-top:20px;
 }
 
 </style></head><body><div id="page1">
@@ -121,50 +120,36 @@ margin-top:25px;
 🎉 Happy Birthday Laxmi bow 🫶🧿
 </div></div><script>
 
-/* SMOOTH HEART ANIMATION */
+/* HEART ANIMATION */
 
 function heart(){
-
 var h=document.createElement("div");
-
 h.className="heart";
-
 h.innerHTML="❤";
-
 h.style.left=Math.random()*100+"vw";
-
 document.body.appendChild(h);
-
-setTimeout(function(){h.remove()},7000);
-
+setTimeout(function(){h.remove()},8000);
 }
 
-setInterval(heart,800);
+setInterval(heart,1200);
 
 /* OPEN PAGE */
 
 function openPage(){
 
 document.getElementById("page1").style.display="none";
-
 document.getElementById("page2").style.display="flex";
-
-/* COUNTDOWN */
 
 var targetDate=new Date("Mar 20, 2026 00:00:00").getTime();
 
 var timer=setInterval(function(){
 
 var now=new Date().getTime();
-
 var distance=targetDate-now;
 
 var days=Math.floor(distance/(1000*60*60*24));
-
 var hours=Math.floor((distance%(1000*60*60*24))/(1000*60*60));
-
 var minutes=Math.floor((distance%(1000*60*60))/(1000*60));
-
 var seconds=Math.floor((distance%(1000*60))/1000);
 
 document.getElementById("days").innerHTML=days;
