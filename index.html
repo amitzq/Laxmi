@@ -1,32 +1,56 @@
 <!DOCTYPE html><html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Laxmi Birthday</title><style>
+<head><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Laxmi Birthday</title><style>
+
+/* BODY */
 
 body{
+
 margin:0;
+
 font-family:Arial;
+
 color:white;
+
 text-align:center;
+
 height:100vh;
+
 display:flex;
+
 justify-content:center;
+
 align-items:center;
+
 flex-direction:column;
+
 overflow:hidden;
+
+/* PINK PURPLE BACKGROUND */
+
+background:linear-gradient(135deg,#ff758c,#ff7eb3,#8f5cff);
+
 }
 
-/* BACKGROUND IMAGE */
+/* BACKGROUND IMAGE AFTER TAP */
 
 .bg{
+
 position:fixed;
+
 top:0;
+
 left:0;
+
 width:100%;
+
 height:100%;
+
 object-fit:cover;
+
 z-index:-1;
+
 display:none;
+
 }
 
 /* TAP BUTTON */
@@ -35,9 +59,7 @@ display:none;
 
 background:linear-gradient(135deg,#ff6a88,#ff99ac);
 
-color:white;
-
-padding:18px 30px;
+padding:18px 32px;
 
 font-size:18px;
 
@@ -49,89 +71,111 @@ box-shadow:0 5px 20px rgba(0,0,0,0.3);
 
 }
 
-/* PAGE */
+/* PAGE 2 */
 
 #page2{
+
 display:none;
+
 flex-direction:column;
+
 align-items:center;
+
 }
 
 /* TEXT */
 
 .topText{
+
 font-size:18px;
+
 margin-bottom:12px;
+
 }
 
 .bottomText{
-font-size:17px;
+
+font-size:16px;
+
 margin-top:12px;
+
 }
 
 /* COUNTDOWN */
 
 .countdown{
+
 display:flex;
+
 gap:6px;
+
 }
 
 .box{
+
 background:rgba(0,0,0,0.5);
+
 padding:8px;
+
 border-radius:8px;
+
 width:55px;
+
 }
 
 .number{
+
 font-size:16px;
+
 font-weight:bold;
+
 }
 
 .label{
+
 font-size:9px;
+
 }
 
 /* FINAL MESSAGE */
 
 #birthdayMsg{
+
 display:none;
+
 font-size:24px;
+
 margin-top:20px;
+
 }
 
 </style></head><body><img src="Image.jpg" class="bg" id="bg"><audio id="song" src="Song.mp3"></audio>
 
-<div id="page1"><div class="tapBox" onclick="openPage()">🎁 Tap For Your Surprise
+<!-- TAP PAGE --><div id="page1"><div class="tapBox" onclick="openPage()">🎁 Tap For Your Surprise
 
-</div></div><div id="page2"><div class="topText">
-❤️ I love you Laxmi wife 🫶🧿🥺
-</div><div class="countdown"><div class="box">
-<div id="days" class="number">00</div>
-<div class="label">Days</div>
-</div><div class="box">
-<div id="hours" class="number">00</div>
-<div class="label">Hours</div>
-</div><div class="box">
-<div id="minutes" class="number">00</div>
-<div class="label">Minutes</div>
-</div><div class="box">
-<div id="seconds" class="number">00</div>
-<div class="label">Seconds</div>
-</div></div><div class="bottomText">
-🥺 I miss you Baby 🥺🫶🧿
-</div><div id="birthdayMsg">
-🎉 Happy Birthday Laxmi bow 🫶🧿
+</div></div><!-- COUNTDOWN PAGE --><div id="page2"><div class="topText">❤️ I love you Laxmi wife 🫶🧿🥺
+
+</div><div class="countdown"><div class="box"><div id="days" class="number">00</div><div class="label">Days</div></div><div class="box"><div id="hours" class="number">00</div><div class="label">Hours</div></div><div class="box"><div id="minutes" class="number">00</div><div class="label">Minutes</div></div><div class="box"><div id="seconds" class="number">00</div><div class="label">Seconds</div></div></div><div class="bottomText">🥺 I miss you Baby 🥺🫶🧿
+
+</div><div id="birthdayMsg">🎉 Happy Birthday Laxmi bow 🫶🧿
+
 </div></div><script>
 
 function openPage(){
 
 document.getElementById("page1").style.display="none";
+
 document.getElementById("page2").style.display="flex";
+
+/* SHOW IMAGE */
 
 document.getElementById("bg").style.display="block";
 
+/* PLAY SONG */
+
 document.getElementById("song").play();
+
+/* COUNTDOWN */
 
 var targetDate=new Date("Mar 20, 2026 00:00:00").getTime();
 
@@ -150,8 +194,11 @@ var minutes=Math.floor((distance%(1000*60*60))/(1000*60));
 var seconds=Math.floor((distance%(1000*60))/1000);
 
 document.getElementById("days").innerHTML=days;
+
 document.getElementById("hours").innerHTML=hours;
+
 document.getElementById("minutes").innerHTML=minutes;
+
 document.getElementById("seconds").innerHTML=seconds;
 
 if(distance<=0){
@@ -172,5 +219,4 @@ document.getElementById("birthdayMsg").style.display="block";
 
 }
 
-</script></body>
-</html>
+</script></body></html>
