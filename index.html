@@ -29,15 +29,24 @@ z-index:-1;
 display:none;
 }
 
-/* TAP BOX */
+/* TAP BUTTON */
 
 .tapBox{
-border:2px solid white;
-padding:18px 28px;
+
+background:linear-gradient(135deg,#ff6a88,#ff99ac);
+
+color:white;
+
+padding:18px 30px;
+
 font-size:18px;
+
+border-radius:12px;
+
 cursor:pointer;
-background:rgba(0,0,0,0.5);
-border-radius:10px;
+
+box-shadow:0 5px 20px rgba(0,0,0,0.3);
+
 }
 
 /* PAGE */
@@ -93,11 +102,9 @@ margin-top:20px;
 
 </style></head><body><img src="Image.jpg" class="bg" id="bg"><audio id="song" src="Song.mp3"></audio>
 
-<div id="page1">
-<div class="tapBox" onclick="openPage()">
-🎁 Tap For Your Surprise
-</div>
-</div><div id="page2"><div class="topText">
+<div id="page1"><div class="tapBox" onclick="openPage()">🎁 Tap For Your Surprise
+
+</div></div><div id="page2"><div class="topText">
 ❤️ I love you Laxmi wife 🫶🧿🥺
 </div><div class="countdown"><div class="box">
 <div id="days" class="number">00</div>
@@ -122,15 +129,9 @@ function openPage(){
 document.getElementById("page1").style.display="none";
 document.getElementById("page2").style.display="flex";
 
-/* SHOW BACKGROUND IMAGE */
-
 document.getElementById("bg").style.display="block";
 
-/* PLAY SONG */
-
 document.getElementById("song").play();
-
-/* COUNTDOWN */
 
 var targetDate=new Date("Mar 20, 2026 00:00:00").getTime();
 
