@@ -1,224 +1,91 @@
-<!DOCTYPE html><html>
+<!DOCTYPE html><html lang="en">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Laxmi Birthday</title><style>
-
-/* BODY BACKGROUND */
-
-body{
-margin:0;
-font-family:Arial;
-color:white;
-text-align:center;
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-flex-direction:column;
-overflow:hidden;
-
-/* PINK PURPLE BACKGROUND */
-
-background:linear-gradient(135deg,#ff6a88,#ff99ac,#8f5cff);
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      overflow: hidden;
+      background: #000;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+    }canvas {
+  position: fixed;
+  inset: 0;
 }
 
-/* TAP BUTTON */
-
-.tapBox{
-
-background:rgba(0,0,0,0.4);
-
-padding:18px 30px;
-
-font-size:18px;
-
-border-radius:12px;
-
-cursor:pointer;
-
-box-shadow:0 5px 20px rgba(0,0,0,0.3);
-
+.text {
+  position: relative;
+  z-index: 2;
+  font-size: 90px;
+  font-weight: bold;
+  color: #ffb6c1;
+  text-shadow: 0 0 15px #ff69b4, 0 0 30px #ff69b4;
+  letter-spacing: 6px;
+  animation: glow 1.5s infinite alternate;
 }
 
-/* IMAGE AFTER TAP */
-
-.bg{
-
-position:fixed;
-
-top:0;
-
-left:0;
-
-width:100%;
-
-height:100%;
-
-object-fit:cover;
-
-z-index:-1;
-
-display:none;
-
+@keyframes glow {
+  from { transform: scale(1); }
+  to { transform: scale(1.05); }
 }
 
-/* PAGE 2 */
-
-#page2{
-
-display:none;
-
-flex-direction:column;
-
-align-items:center;
-
-}
-
-/* TEXT */
-
-.topText{
-
-font-size:18px;
-
-margin-bottom:12px;
-
-}
-
-.bottomText{
-
-font-size:16px;
-
-margin-top:12px;
-
-}
-
-/* COUNTDOWN */
-
-.countdown{
-
-display:flex;
-
-gap:6px;
-
-}
-
-.box{
-
-background:rgba(0,0,0,0.5);
-
-padding:8px;
-
-border-radius:8px;
-
-width:55px;
-
-}
-
-.number{
-
-font-size:16px;
-
-font-weight:bold;
-
-}
-
-.label{
-
-font-size:9px;
-
-}
-
-/* FINAL MESSAGE */
-
-#birthdayMsg{
-
-display:none;
-
-font-size:24px;
-
-margin-top:20px;
-
-}
-
-</style></head><body><img src="Image.jpg" class="bg" id="bg"><audio id="song" src="Song.mp3"></audio>
-
-<!-- TAP PAGE --><div id="page1"><div class="tapBox" onclick="openPage()">🎁 Tap For Your Surprise
-
-</div></div><!-- COUNTDOWN PAGE --><div id="page2"><div class="topText">
-❤️ I love you Laxmi wife 🫶🧿🥺
-</div><div class="countdown"><div class="box">
-<div id="days" class="number">00</div>
-<div class="label">Days</div>
-</div><div class="box">
-<div id="hours" class="number">00</div>
-<div class="label">Hours</div>
-</div><div class="box">
-<div id="minutes" class="number">00</div>
-<div class="label">Minutes</div>
-</div><div class="box">
-<div id="seconds" class="number">00</div>
-<div class="label">Seconds</div>
-</div></div><div class="bottomText">
-🥺 I miss you Baby 🥺🫶🧿
-</div><div id="birthdayMsg">
-🎉 Happy Birthday Laxmi bow 🫶🧿
-</div></div><script>
-
-function openPage(){
-
-document.getElementById("page1").style.display="none";
-
-document.getElementById("page2").style.display="flex";
-
-/* SHOW IMAGE */
-
-document.getElementById("bg").style.display="block";
-
-/* PLAY SONG */
-
-document.getElementById("song").play();
-
-/* COUNTDOWN */
-
-var targetDate=new Date("Mar 20, 2026 00:00:00").getTime();
-
-var timer=setInterval(function(){
-
-var now=new Date().getTime();
-
-var distance=targetDate-now;
-
-var days=Math.floor(distance/(1000*60*60*24));
-
-var hours=Math.floor((distance%(1000*60*60*24))/(1000*60*60));
-
-var minutes=Math.floor((distance%(1000*60*60))/(1000*60));
-
-var seconds=Math.floor((distance%(1000*60))/1000);
-
-document.getElementById("days").innerHTML=days;
-document.getElementById("hours").innerHTML=hours;
-document.getElementById("minutes").innerHTML=minutes;
-document.getElementById("seconds").innerHTML=seconds;
-
-if(distance<=0){
-
-clearInterval(timer);
-
-document.querySelector(".countdown").style.display="none";
-
-document.querySelector(".topText").style.display="none";
-
-document.querySelector(".bottomText").style.display="none";
-
-document.getElementById("birthdayMsg").style.display="block";
-
-}
-
-},1000);
-
-}
-
-</script></body>
+  </style>
+</head>
+<body>
+  <canvas id="bg"></canvas>
+  <div class="text" id="msg"></div>  <script>
+    const message = "HAPPY BIRTHDAY TO YOU DEAR";
+    const msgEl = document.getElementById("msg");
+    let i = 0;
+
+    function typeText() {
+      if (i < message.length) {
+        msgEl.textContent += message[i];
+        i++;
+        setTimeout(typeText, 180);
+      }
+    }
+    typeText();
+
+    const canvas = document.getElementById("bg");
+    const ctx = canvas.getContext("2d");
+
+    function resize() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    resize();
+    window.addEventListener("resize", resize);
+
+    const letters = "HAPPY BIRTHDAY";
+    const fontSize = 18;
+    let columns = Math.floor(window.innerWidth / fontSize);
+    let drops = Array(columns).fill(1);
+
+    function draw() {
+      ctx.fillStyle = "rgba(0,0,0,0.08)";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      ctx.fillStyle = "rgba(255,255,255,0.9)";
+      ctx.font = fontSize + "px monospace";
+
+      for (let x = 0; x < drops.length; x++) {
+        const text = letters[Math.floor(Math.random() * letters.length)];
+        ctx.fillText(text, x * fontSize, drops[x] * fontSize);
+
+        if (drops[x] * fontSize > canvas.height && Math.random() > 0.975) {
+          drops[x] = 0;
+        }
+        drops[x]++;
+      }
+    }
+
+    setInterval(draw, 50);
+  </script></body>
 </html>
